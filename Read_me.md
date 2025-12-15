@@ -2,14 +2,15 @@
 
 Build a tiny HTTP API your backend can call to turn messy, user- or supplier-provided ingredient strings into a normalized ingredient object.
 
-### 💻 Code Attribution & Plan
+## Plan
 
-| Component | Primary Author | Status |
-| :--- | :--- | :--- |
-| Pydantic Models | AI (Gemini) | Complete |
-| LLM Retry Logic | AI (Gemini) | Complete |
-| Input Sanitation Logic | Human | Complete |
-| Final Bug Fixes (v4, v6, v7) | Human (Debugging assisted by AI) | Complete |
+| Phase | Status |
+| :--- | :--- |
+| Setup & Models | **Completed** |
+| LLM Client & Retry | **Completed** |
+| FastAPI Integration & Prompting (main.py) | **Completed** |
+| Testing (Unit Tests) | **Pending** |
+| Documentation (README.md) | **Completed** |
 
 ## AI USE
 
