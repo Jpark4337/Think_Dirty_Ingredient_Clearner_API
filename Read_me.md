@@ -30,7 +30,7 @@ explanation: 1–3 sentences for humans (this is for internal review / debugging
 Change Log / Iteration: 1
 Result: AI provided the full directory structure and terminal commands to set up the environment. Gave me the plan for the project: Setup & Models, LLM Client & Retry, FastAPI Integration & Prompting (main.py),Testing (Unit Tests), Documentation Final.
 
-Action: I accepted the file structure but had to manually create the files. such as venv, .env file, gitignore.
+Change log: I accepted the file structure but had to manually create the files. such as venv, .env file, gitignore.
 
 ### Prompt v2
 
@@ -38,7 +38,7 @@ I have install the venv, .env file, gitignore, but what are these as conceptuall
 
 Iteration: 1
 
-Outcome: I had to understand what is going on so that I can explain what I have done and read the code and what each codes are. For example, I realized gitignore file is preventing the venv file to be uploaded to Github as they are too big file to be pushed into Github
+Change log: I had to understand what is going on so that I can explain what I have done and read the code and what each codes are. For example, I realized gitignore file is preventing the venv file to be uploaded to Github as they are too big file to be pushed into Github
 
 ### Prompt v3
 
@@ -46,7 +46,7 @@ Outcome: I had to understand what is going on so that I can explain what I have 
 
 Iteration: 1
 
-Outcome: I have got the error that I do not have module "model"
+Change log: I have got the error that I do not have module "model"
 
 ## Prompt v4  
 
@@ -55,7 +55,7 @@ Issue: The code failed to run because of a casing mismatch (Main.py vs main.py) 
 
 Fix: The AI identified that my file was named Main.py (capitalized) and that models.py was empty/missing so I had to make the new one.
 
-Outcome: I renamed the file to main.py and populated models.py with the Pydantic schemas.
+Change log: I renamed the file to main.py and populated models.py with the Pydantic schemas.
 
 ## Prompt v5
 
@@ -67,11 +67,14 @@ Issue: The initial code used a model name (gpt-4-turbo) that my specific API key
 I have tried iterated through model names in my oepnai_client.py file. I rejected the prompt suggesting gpt-4-turbo and accepted the fix to switch to gpt-3.5-turbo-0125, but this have not solved the problem yet.
 
 ## Prompt v6
+
 "I am getting this error for Live API Test Confirmation: can you please explain why this is not working. Here is the error: (venv) jaypark@Jays-MacBook-Pro Think_Dirty_Ingredient_Clearner_API % python main.py
 Traceback (most recent call last):
-  File "/Users/jaypark/Desktop/Computer Science Project/Think_Dirty_Ingredient_Clearner_API/main.py", line 7, in <module>
+  File "/Users/jaypark/Desktop/Computer Science Project/Think_Dirty_Ingredient_Clearner_API/main.py", line 7, in module
     from models import IngredientRequest, IngredientResponse, CategoryType
 ImportError: cannot import name 'CategoryType' from 'models' (/Users/jaypark/Desktop/Computer Science Project/Think_Dirty_Ingredient_Clearner_API/models.py)"
 
+Issue: My main.py script is trying to import CategoryType, but the file it is importing from models.py only defines a type called Classification.
 
-
+Iteration: 1
+Change log 1. I have changed the script and it works now.
