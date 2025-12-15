@@ -9,4 +9,4 @@ venv/
 # Python cache and build files
 __pycache__/
 *.pyc
-*.egg-info/
+*.egg-info/     # This will ignore all the information going into the github
