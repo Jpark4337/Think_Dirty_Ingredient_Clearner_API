@@ -12,7 +12,7 @@ RETRY_ERRORS = (RateLimitError, APIError)
 
 @retry(
     wait=wait_exponential(min=2, max=30),  # Wait starts at 2s, backs off up to 30s
-    stop=stop_after_attempt(4),             # Only try a maximum of 4 times total
+    stop=stop_after_attempt(4),             # Only try a maximum of 4 times total as it would just waste the quota and this was the number that I should put following the project recommendation.
     retry=retry_if_exception_type(RETRY_ERRORS),
     reraise=True # Re-raise the error if all retries fail
 )
