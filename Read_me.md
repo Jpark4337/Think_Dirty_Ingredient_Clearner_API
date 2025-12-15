@@ -9,14 +9,14 @@ Build a tiny HTTP API your backend can call to turn messy, user- or supplier-pro
 | Setup & Models | **Completed** |
 | LLM Client & Retry | **Completed** |
 | FastAPI Integration & Prompting (main.py) | **Completed** |
-| Testing (Unit Tests) | **Pending** |
 | Documentation (README.md) | **Completed** |
+| Testing (Unit Tests) | **Pending** |
 
 ## AI USE
 
 Tool: Google Gemini and Chat GPT
 
-### Prompt v1: Project Initialization
+## Prompt v1: Project Initialization
 
 "I am working on this and can you tell me step by step to work on the project? From the project description, I think this is very similar case from my first project but I have to code for this time. The input dataset is the same as the first project, but I have given the API contract which is : API contract
 Endpoint
@@ -33,7 +33,7 @@ Result: AI provided the full directory structure and terminal commands to set up
 
 Change log: I accepted the file structure but had to manually create the files. such as venv, .env file, gitignore.
 
-### Prompt v2
+## Prompt v2
 
 I have install the venv, .env file, gitignore, but what are these as conceptually? I do not understand what I am doing right now so can you please explain what these are for?
 
@@ -41,7 +41,7 @@ Iteration: 1
 
 Change log: I had to understand what is going on so that I can explain what I have done and read the code and what each codes are. For example, I realized gitignore file is preventing the venv file to be uploaded to Github as they are too big file to be pushed into Github
 
-### Prompt v3
+## Prompt v3
 
 "Can you please give me the code for main.py, mdoels.py, openai_client.py files so that I can see how they works and I will change the code later if there is a specific change that I want to change but I want to check if I will be able to start the server and move to Unit Testing. If this works it means there is possibility that I can finish this project in a day."
 
@@ -49,7 +49,7 @@ Iteration: 1
 
 Change log: I have got the error that I do not have module "model"
 
-## Prompt v4  
+# Prompt v4  
 
 "I got this error : (venv) jaypark@Jays-MacBook-Pro ... Traceback (most recent call last): ... ModuleNotFoundError: No module named 'models'" Can you please explain what is wrong and what I should do?
 Issue: The code failed to run because of a casing mismatch (Main.py vs main.py) and a missing file issue."
