@@ -65,3 +65,13 @@ Change Log / Iteration: 2 (I tried to figure out how to solve this problem but I
 
 Issue: The initial code used a model name (gpt-4-turbo) that my specific API key did not have access to.
 I have tried iterated through model names in my oepnai_client.py file. I rejected the prompt suggesting gpt-4-turbo and accepted the fix to switch to gpt-3.5-turbo-0125, but this have not solved the problem yet.
+
+## Prompt v6
+"I am getting this error for Live API Test Confirmation: can you please explain why this is not working. Here is the error: (venv) jaypark@Jays-MacBook-Pro Think_Dirty_Ingredient_Clearner_API % python main.py
+Traceback (most recent call last):
+  File "/Users/jaypark/Desktop/Computer Science Project/Think_Dirty_Ingredient_Clearner_API/main.py", line 7, in <module>
+    from models import IngredientRequest, IngredientResponse, CategoryType
+ImportError: cannot import name 'CategoryType' from 'models' (/Users/jaypark/Desktop/Computer Science Project/Think_Dirty_Ingredient_Clearner_API/models.py)"
+
+
+

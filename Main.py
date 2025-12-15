@@ -4,7 +4,7 @@ import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import ValidationError
 
-from models import IngredientRequest, IngredientResponse, CategoryType
+from models import IngredientRequest, IngredientResponse, Classification
 from openai_client import get_normalized_ingredient_from_llm # These are the LLM Call functions with retries, but havne't working yet. 
 
 #FastAPI app initilization can be started at here
