@@ -77,4 +77,5 @@ ImportError: cannot import name 'CategoryType' from 'models' (/Users/jaypark/Des
 Issue: My main.py script is trying to import CategoryType, but the file it is importing from models.py only defines a type called Classification.
 
 Iteration: 1
+
 Change log 1. I have changed the script and it works now.
