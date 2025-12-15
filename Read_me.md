@@ -60,12 +60,15 @@ Change log: I renamed the file to main.py and populated models.py with the Pydan
 
 ## Prompt v5
 
-"Now I can work on server but I am having this error message on terminal can you please why I am getting this error and please let me know how I should solve this problem? Here is the error message : Calling LLM for raw input: 'Phenoxyehtanol' ... UNHANDLED API CALL ERROR: Error code: 404 - {'error': {'message': 'The model gpt-4-turbo does not exist or you do not have access to it.' ...}}"
+Prompt v1: "Now I can work on server but I am having this error message on terminal can you please why I am getting this error and please let me know how I should solve this problem? Here is the error message : Calling LLM for raw input: 'Phenoxyehtanol' ... UNHANDLED API CALL ERROR: Error code: 404 - {'error': {'message': 'The model gpt-4-turbo does not exist or you do not have access to it.' ...}}"
 
-Change Log / Iteration: 2 (I tried to figure out how to solve this problem but I am stuck)
+Prompt v2: "Does this mean that there is an error but also there is a problem with the billing issue with OpenAI? What if I change the virsion of the OpenAI gpt version? I am pretty sure there is the free-version for the users but do you think it would work to solve this problem?"
 
-Issue: The initial code used a model name (gpt-4-turbo) that my specific API key did not have access to.
-I have tried iterated through model names in my oepnai_client.py file. I rejected the prompt suggesting gpt-4-turbo and accepted the fix to switch to gpt-3.5-turbo-0125, but this have not solved the problem yet.
+Change Log / Iteration: 2 (I tried to figure out how to solve the billing issue, but I have used all of my quota so I could not figure out the alternative way other than paying for this project)
+
+v1: The initial code used a model name (gpt-4-turbo) that my specific API key did not have access to. So I have iterated through model names in my openai_client .py file to "gpt-3.5-turbo-0125" version to see if this works as free version.
+
+v2: The answer was no. The model implemented in the client, gpt-3.5-turbo-0125, was deliberately chosen because it is one of the most stable, cost-efficient, and capable GPT-3.5 models available, offering reliable support for the structured JSON output required by the API. While this model typically includes the most generous free trial usage, the final error encountered—Error code: 429 insufficient_quota—confirms that all available credits for the external OpenAI API have been exhausted.
 
 ## Prompt v6
 
