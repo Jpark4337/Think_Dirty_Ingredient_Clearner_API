@@ -30,19 +30,16 @@ def call_llm_for_structured_data(
 
     try:
         response = llm_client.chat.completions.create(
-            model="gpt-3.5-turbo-0125", #There is the other versions that I could try, but this was the best option that I could try as they have most quotas
-            temperature=0.0,      # Set to 0.0 for deterministic, reliable structured output
+            model="gpt-4o-mini",
+            temperature=0.0,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            response_format={"type": "json_object", "schema": output_schema} # Ensures structured response
+            response_model=output_schema,  # <--- NEW AND CORRECT APPROACH for the modern OpenAI client
         )
 
-        json_string = response.choices[0].message.content
-        
-        result_dict = json.loads(json_string)
-        return result_dict
+        return response.model_dump()
 
     except AuthenticationError as e:
         print("FATAL ERROR: OpenAI API Key is invalid or expired. Cannot authenticate.")

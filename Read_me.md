@@ -27,7 +27,7 @@ Rules
 normalized_inci: return the best-guess INCI name only if you’re confident. Otherwise null.
 confidence: 0–1 numeric.
 flags: examples: ["typo_suspected", "ambiguous", "derivative_vs_parent", "not_inci", "contains_concentration", "potentially_wrong_merge"]
-explanation: 1–3 sentences for humans (this is for internal review / debugging). 
+explanation: 1–3 sentences for humans (this is for internal review / debugging).
 Furthermore these are the Implementation requirements
 Tech
 Call OpenAI using the Responses API. (OpenAI Platform)
@@ -129,3 +129,49 @@ Issue: My main.py script is trying to import CategoryType, but the file it is im
 Iteration: 1
 
 Change log 1. I have changed the script and it works now.
+
+## Prompt v8
+
+Prompt1: "Okay, I have got my API key from the potential employer so this should work and I can go further steps. So what I have to do for the rest is changing the API key with the one doing the unit test right? Can you please tell me how I should do them?"
+
+Prompt2: "okay now I am getting this after I excuted the "Phenoxyehtanol". INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:60533 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60533 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60533 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60533 - "GET /openapi.json HTTP/1.1" 200 OK
+DEBUG: Attempting LLM call for input: 'Normalize this raw ingredient string: 'Phenoxyehtanol''
+ERROR: General OpenAI API server error. Retrying...
+DEBUG: Attempting LLM call for input: 'Normalize this raw ingredient string: 'Phenoxyehtanol''
+ERROR: General OpenAI API server error. Retrying...
+DEBUG: Attempting LLM call for input: 'Normalize this raw ingredient string: 'Phenoxyehtanol''
+ERROR: General OpenAI API server error. Retrying...
+DEBUG: Attempting LLM call for input: 'Normalize this raw ingredient string: 'Phenoxyehtanol''
+ERROR: General OpenAI API server error. Retrying...
+UNHANDLED API CALL ERROR: Error code: 400 - {'error': {'message': "Unknown parameter: 'response_format.schema'.", 'type': 'invalid_request_error', 'param': 'response_format.schema', 'code': 'unknown_parameter'}}
+INFO:     127.0.0.1:60539 - "POST /v1/ingredient/normalize HTTP/1.1" 500 Internal Server Error"
+
+Prompt 3: "it is not working actually I am getting the same issue again although I have changed my openAI model.: (venv) jaypark@Jays-MacBook-Pro Think_Dirty_Ingredient_Clearner_API % python main.py
+INFO:     Will watch for changes in these directories: ['/Users/jaypark/Desktop/Computer Science Project/Think_Dirty_Ingredient_Clearner_API']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [87324] using StatReload
+INFO:     Started server process [87326]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:60704 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60704 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60704 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60704 - "GET /openapi.json HTTP/1.1" 200 OK
+DEBUG: Attempting LLM call for input: 'Normalize this raw ingredient string: 'Phenoxyehtanol''
+UNHANDLED API CALL ERROR: create() got an unexpected keyword argument 'response_model'
+INFO:     127.0.0.1:60705 - "POST /v1/ingredient/normalize HTTP/1.1" 500 Internal Server Error"
+
+Iteration: 3
+
+Change log:
+
+v1: Updated my OpenAI key in the .env file. I restarted the server to verify the live API Test and entered "Phnoxyethanol" as raw ingredient
+
+v2: The problem was underlying OpenAI model as I previously switched the model to gpt-3.5-turbo-0125 to make it cheaper. Therefore I changed the model name with newest, stable GPT-4 model that gurantees surpport for structued JSON schema.
+
+v3: I forced to unintall the OpenAI and pip and then installed them all again to double check they are all new versions. However, it is making the same error, so I am not sure how to solve this problem. I have checked if this is because I don't have test_api.py file, but is is not as the error source that I am getting are communication errors which happens in the openai and when I running application to talk to the Open AI server. 
