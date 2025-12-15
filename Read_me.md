@@ -153,7 +153,7 @@ INFO:     127.0.0.1:60539 - "POST /v1/ingredient/normalize HTTP/1.1" 500 Interna
 
 Prompt 3: "it is not working actually I am getting the same issue again although I have changed my openAI model.: (venv) jaypark@Jays-MacBook-Pro Think_Dirty_Ingredient_Clearner_API % python main.py
 INFO:     Will watch for changes in these directories: ['/Users/jaypark/Desktop/Computer Science Project/Think_Dirty_Ingredient_Clearner_API']
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Uvicorn running on <http://0.0.0.0:8000> (Press CTRL+C to quit)
 INFO:     Started reloader process [87324] using StatReload
 INFO:     Started server process [87326]
 INFO:     Waiting for application startup.
@@ -174,4 +174,4 @@ v1: Updated my OpenAI key in the .env file. I restarted the server to verify the
 
 v2: The problem was underlying OpenAI model as I previously switched the model to gpt-3.5-turbo-0125 to make it cheaper. Therefore I changed the model name with newest, stable GPT-4 model that gurantees surpport for structued JSON schema.
 
-v3: I forced to unintall the OpenAI and pip and then installed them all again to double check they are all new versions. However, it is making the same error, so I am not sure how to solve this problem. I have checked if this is because I don't have test_api.py file, but is is not as the error source that I am getting are communication errors which happens in the openai and when I running application to talk to the Open AI server. 
+v3: I forced to unintall the OpenAI and pip and then installed them all again to double check they are all new versions. However, it is making the same error, so I am not sure how to solve this problem. I have checked if this is because I don't have test_api.py file, but is is not as the error source that I am getting are communication errors which happens in the openai and when I running application to talk to the Open AI server.
