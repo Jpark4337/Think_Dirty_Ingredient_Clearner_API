@@ -53,7 +53,7 @@ unit tests for at least 10 inputs
 Change Log / Iteration: 1
 Result: AI provided the full directory structure and terminal commands to set up the environment. Gave me the plan for the project: Setup & Models, LLM Client & Retry, FastAPI Integration & Prompting (main.py),Testing (Unit Tests), Documentation Final.
 
-Change log: I accepted the file structure but had to manually create the files. such as venv, .env file, gitignore.
+Change log: I accepted the file structure but had to manually create the files. such as venv, .env file, gitignore. Furthermore, I was informed that the plan will be setup, LLM Client & Retry, FastAPI Intregration & Prompting, Documentation, and then Tesitng Unit Tests.
 
 ## Prompt v2
 
