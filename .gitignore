@@ -1,0 +1,12 @@
+# .gitignore
+#
+# Virtual Environment
+venv/
+
+# Environment Variables/Secrets
+.env
+
+# Python cache and build files
+__pycache__/
+*.pyc
+*.egg-info/
