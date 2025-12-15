@@ -25,4 +25,4 @@ class IngredientResponse(BaseModel):
     category: Classification = Field("unknown", description="Classification of the input based on the predefined types.")
     confidence: float = Field(...,description="The LLM's certainty score (0.0 to 1.0) on the normalized result.")
     flags: List[str] = Field([],description="List of issues or observations about the input (e.g., 'typo_suspected', 'contains_concentration').")
-    explanation: str = Field(..., description="A concise explanation for the normalization decision or the reason for nulling the INCI name.")
+    explanation: str = Field(..., description="A concise explanation for the normalization decision or the reason for nulling the INCI name.") #Note for myself that I have to update all of this in the main.py as well.

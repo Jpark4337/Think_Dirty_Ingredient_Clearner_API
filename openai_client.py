@@ -30,7 +30,7 @@ def call_llm_for_structured_data(
 
     try:
         response = llm_client.chat.completions.create(
-            model="gpt-3.5-turbo-0125", 
+            model="gpt-3.5-turbo-0125", #There is the other versions that I could try, but this was the best option that I could try as they have most quotas
             temperature=0.0,      # Set to 0.0 for deterministic, reliable structured output
             messages=[
                 {"role": "system", "content": system_prompt},
