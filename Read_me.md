@@ -18,7 +18,7 @@ Tool: Google Gemini and Chat GPT
 
 ## Prompt v1: Project Initialization
 
-"I am working on this and can you tell me step by step to work on the project? From the project description, I think this is very similar case from my first project but I have to code for this time. The input dataset is the same as the first project, but I have given the API contract which is : API contract
+"Now this is the second project continued from my first project. I am working on this and can you tell me step by step to work on the project? From the project description, I think this is very similar case from my first project but I have to code for this time. The input dataset is the same as the first project, but I have given the API contract which is : API contract
 Endpoint
 POST /v1/ingredient/normalize
 Request JSON
@@ -27,7 +27,29 @@ Rules
 normalized_inci: return the best-guess INCI name only if you’re confident. Otherwise null.
 confidence: 0–1 numeric.
 flags: examples: ["typo_suspected", "ambiguous", "derivative_vs_parent", "not_inci", "contains_concentration", "potentially_wrong_merge"]
-explanation: 1–3 sentences for humans (this is for internal review / debugging)."
+explanation: 1–3 sentences for humans (this is for internal review / debugging). 
+Furthermore these are the Implementation requirements
+Tech
+Call OpenAI using the Responses API. (OpenAI Platform)
+Use structured prompting to get JSON you can validate (you can use JSON schema validation on your side).
+Reliability & production-mindedness
+Request timeout + retry with exponential backoff on 429/5xx (show your strategy). (OpenAI Platform)
+Basic input sanitation (trim, collapse whitespace, strip surrounding quotes)
+Rate limit protection (simple in-memory limiter is fine)
+Deterministic behavior:
+set your temperature low (or explain how you control variance)
+require the model to emit only the JSON object
+Deliverables
+Source code
+README with:
+how to run locally
+curl example request/response
+how they designed prompt + schema
+known failure modes
+A small test file:
+unit tests for at least 10 inputs
+2 “should not merge” cases (e.g., Sodium Chloride vs Sodium Chlorite). Please tell me the steps that I have to work on this because I have never done working with JSON object and collaborating the Open AI proejct. I would be also good if you can define what JSON object is"
+
 Change Log / Iteration: 1
 Result: AI provided the full directory structure and terminal commands to set up the environment. Gave me the plan for the project: Setup & Models, LLM Client & Retry, FastAPI Integration & Prompting (main.py),Testing (Unit Tests), Documentation Final.
 
