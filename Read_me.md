@@ -35,25 +35,45 @@ Change log: I accepted the file structure but had to manually create the files. 
 
 ## Prompt v2
 
-I have install the venv, .env file, gitignore, but what are these as conceptually? I do not understand what I am doing right now so can you please explain what these are for?
+Prompt: "I have made the main.py, models.py, openai_client.py files with the codes that I was given. Can you please go through each codes for each files so that I can comprehend what is going on and then I can iterate some of the codes as I want it to be? Expecially, I do not understand the code section in the modesl.py;. Can you please explain this part and also all the codes in the three files.
+ class IngredientResponse(BaseModel):
+    """
+    The strict JSON output model the LLM must adhere to and the final API response format.
+    Ensures data consistency and safety across the service.
+    """
+    raw: str = Field(..., description="The original raw input, echoed for reference.")
+    normalized_inci: Optional[str] = Field(None,description="The recognized INCI name. This field MUST be null if the LLM's confidence is low (<0.5) or the ingredient is ambiguous (safety first!).")
+    normalized_common: Optional[str] = Field(None, description="A common, user-friendly name, if one exists (e.g., Vitamin C).")
+    category: Classification = Field("unknown", description="Classification of the input based on the predefined types.")
+    confidence: float = Field(...,description="The LLM's certainty score (0.0 to 1.0) on the normalized result.")
+    flags: List[str] = Field([],description="List of issues or observations about the input (e.g., 'typo_suspected', 'contains_concentration').")
+    explanation: str = Field(..., description="A concise explanation for the normalization decision or the reason for nulling the INCI name.")."
+
+Iteration: 1
+
+Change log: I had to understand what is going on so that I can explain what I have done and read the code and what each codes are. I have learned that the class ingredient reponse ensures that the JSON result from the LLM is validated and consistently structured (type-checked) before being sent as the final, reliable response from my API server.
+
+## Prompt v3
+
+Prompt: "I have install the venv, .env file, gitignore, but what are these as conceptually? I do not understand what I am doing right now so can you please explain what these are for?"
 
 Iteration: 1
 
 Change log: I had to understand what is going on so that I can explain what I have done and read the code and what each codes are. For example, I realized gitignore file is preventing the venv file to be uploaded to Github as they are too big file to be pushed into Github
 
-## Prompt v3
+## Prompt v4
 
 "Can you please give me the code for main.py, mdoels.py, openai_client.py files so that I can see how they works and I will change the code later if there is a specific change that I want to change but I want to check if I will be able to start the server and move to Unit Testing. If this works it means there is possibility that I can finish this project in a day."
 
 Iteration: 1
 
-Change log: 
+Change log:
 
 -Result: Received the complete initial code for `main.py`, `models.py`, and `openai_client.py`.
 
 -The server immediately failed to start, throwing an `ImportError` or `ModuleNotFoundError` (as detailed in Prompt v4) because the files were either named incorrectly or not visible to the Python interpreter.
 
-## Prompt v4  
+## Prompt v5  
 
 "I got this error : (venv) jaypark@Jays-MacBook-Pro ... Traceback (most recent call last): ... ModuleNotFoundError: No module named 'models'" Can you please explain what is wrong and what I should do?
 Issue: The code failed to run because of a casing mismatch (Main.py vs main.py) and a missing file issue."
@@ -62,7 +82,7 @@ Fix: The AI identified that my file was named Main.py (capitalized) and that mod
 
 Change log: I renamed the file to main.py and populated models.py with the Pydantic schemas.
 
-## Prompt v5
+## Prompt v6
 
 Prompt v1: "Now I can work on server but I am having this error message on terminal can you please why I am getting this error and please let me know how I should solve this problem? Here is the error message : Calling LLM for raw input: 'Phenoxyehtanol' ... UNHANDLED API CALL ERROR: Error code: 404 - {'error': {'message': 'The model gpt-4-turbo does not exist or you do not have access to it.' ...}}"
 
@@ -74,7 +94,7 @@ v1: The initial code used a model name (gpt-4-turbo) that my specific API key di
 
 v2: The answer was no. The model implemented in the client, gpt-3.5-turbo-0125, was deliberately chosen because it is one of the most stable, cost-efficient, and capable GPT-3.5 models available, offering reliable support for the structured JSON output required by the API. While this model typically includes the most generous free trial usage, the final error encountered—Error code: 429 insufficient_quota—confirms that all available credits for the external OpenAI API have been exhausted.
 
-## Prompt v6
+## Prompt v7
 
 "I am getting this error for Live API Test Confirmation: can you please explain why this is not working. Here is the error: (venv) jaypark@Jays-MacBook-Pro Think_Dirty_Ingredient_Clearner_API % python main.py
 Traceback (most recent call last):
