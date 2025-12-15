@@ -57,7 +57,7 @@ async def normalize_ingredient_endpoint(request: IngredientRequest):
         llm_data_dict = get_normalized_ingredient_from_llm(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
-            json_schema=json_schema)
+            output_schema=json_schema)
         
         validated_response = IngredientResponse(**llm_data_dict)
         validated_response.raw = request.raw # Ensure the *original* raw input is returned
